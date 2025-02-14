@@ -3,7 +3,7 @@
 let adventureState = { step: 0 };
 
 // Adventure steps with up to 40 choices
-const adventureSteps = {
+const adventureSteps1 = {
     0: {
         text: 'You find yourself at the entrance of a mysterious forest. Do you "enter" the forest or "turn back"?',
         choices: { enter: 1, "turn back": 2 }
@@ -175,12 +175,3 @@ function initializeAdventure() {
     document.getElementById('story').innerText = adventureSteps[adventureState.step].text;
 }
 
-// Handle User Input
-document.getElementById('adventure-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const userInput = document.getElementById('user-input').value.trim().toLowerCase();
-    if (userInput === '') return;
-
-    const currentStep = adventureSteps[adventureState.step];
-    if (currentStep.choices[userInput] !== undefined) {
-        adventureState.step = currentStep.choices[userInput];
