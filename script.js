@@ -2,7 +2,7 @@
 
 let adventureState = { step: 0 };
 
-// Adventure steps
+// Adventure steps with up to 40 choices
 const adventureSteps = {
     0: {
         text: 'You find yourself at the entrance of a mysterious forest. Do you "enter" the forest or "turn back"?',
@@ -40,7 +40,6 @@ const adventureSteps = {
         text: 'You ignore the old man and continue. Do you "explore" a hidden path or "rest" by the path?',
         choices: { explore: 14, rest: 15 }
     },
-    // additional steps...
     9: {
         text: 'You take the gold and jewels and leave the forest. The adventure ends here with riches. Refresh the page to start again.',
         choices: {}
@@ -118,4 +117,70 @@ const adventureSteps = {
         choices: { explore: 47, rest: 48 }
     },
     28: {
-        text: 'You ignore the berries and continue. Do you "build" a shelter or "keep
+        text: 'You ignore the berries and continue. Do you "build" a shelter or "keep walking"?',
+        choices: { build: 49, "keep walking": 50 }
+    },
+    29: {
+        text: 'You take the treasure and become wealthy. The adventure ends with your riches. Refresh the page to start again.',
+        choices: {}
+    },
+    30: {
+        text: 'You leave the treasure and continue. Do you "explore" the cave or "leave"?',
+        choices: { explore: 51, leave: 52 }
+    },
+    31: {
+        text: 'You build a shelter and survive the night. The adventure ends with your survival. Refresh the page to start again.',
+        choices: {}
+    },
+    32: {
+        text: 'You keep walking and find a village. The adventure ends with your discovery. Refresh the page to start again.',
+        choices: {}
+    },
+    33: {
+        text: 'You search for supplies and find food. Do you "eat" it or "save" it?',
+        choices: { eat: 53, save: 54 }
+    },
+    34: {
+        text: 'You build a shelter and find comfort. The adventure ends with your comfort. Refresh the page to start again.',
+        choices: {}
+    },
+    35: {
+        text: 'You enter the hut and find old supplies. Do you "take" them or "leave" them?',
+        choices: { take: 55, leave: 56 }
+    },
+    36: {
+        text: 'You keep walking and find a river. Do you "follow" it or "ignore" it?',
+        choices: { follow: 57, ignore: 58 }
+    },
+    37: {
+        text: 'You study the artifacts and gain knowledge. The adventure ends with your newfound wisdom. Refresh the page to start again.',
+        choices: {}
+    },
+    38: {
+        text: 'You take the artifacts and leave the cave. The adventure ends with your discovery. Refresh the page to start again.',
+        choices: {}
+    },
+    39: {
+        text: 'You enter the animal\'s home and find safety. The adventure ends with your safety. Refresh the page to start again.',
+        choices: {}
+    },
+    40: {
+        text: 'You stay outside and find shelter. The adventure ends with your shelter. Refresh the page to start again.',
+        choices: {}
+    }
+};
+
+// Initialize Adventure
+function initializeAdventure() {
+    document.getElementById('story').innerText = adventureSteps[adventureState.step].text;
+}
+
+// Handle User Input
+document.getElementById('adventure-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const userInput = document.getElementById('user-input').value.trim().toLowerCase();
+    if (userInput === '') return;
+
+    const currentStep = adventureSteps[adventureState.step];
+    if (currentStep.choices[userInput] !== undefined) {
+        adventureState.step = currentStep.choices[userInput];
