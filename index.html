@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
+    <title>Choose Your Own Adventure - CYOA</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        // Redirect to versionload.html
-        window.location.href = "https://lucgei231.github.io/versionload.html";
-    </script>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/webapp.png">
+    <meta name="apple-mobile-web-app-capable" content="true">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CYOA">
+    <meta name="theme-color" content="#6200ea">
 </head>
 <body>
+    <header>
+        <h1>CYOA - Choose Your Own Adventure</h1>
+        <img src="icons/icon.png" alt="CYOA Icon">
+    </header>
     <main>
-        <h1>Redirecting to Choose Version...</h1>
+        <h2>Welcome to CYOA!</h2>
+        <button id="loadVersionButton">Load Version</button>
     </main>
+    <script>
+        document.getElementById('loadVersionButton').addEventListener('click', () => {
+            window.location.href = "https://lucgei231.github.io/versionload.html";
+        });
+    </script>
 </body>
 </html>
