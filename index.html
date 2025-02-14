@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYOA - Choose Your Own Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/webapp.png">
+    <!-- Ensure web app compatibility on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="true">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CYOA">
+    <meta name="theme-color" content="#6200ea">
+</head>
+<body>
+    <header>
+        <h1>CYOA - Choose Your Own Adventure</h1>
+        <img src="icons/icon.png" alt="CYOA Icon">
+    </header>
+    <main>
+        <!-- Adventure Container -->
+        <div id="adventure-container">
+            <div id="story"></div>
+            <form id="adventure-form">
+                <input type="text" id="user-input" placeholder="Type your choice..." autocomplete="off" required>
+                <button type="submit">Go</button>
+            </form>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
