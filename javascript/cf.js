@@ -1,4 +1,4 @@
-// javascript/cf.js
+// javascript/1.0/cf.js
 
 console.log("cf.js loaded");
 
