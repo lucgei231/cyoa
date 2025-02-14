@@ -1,0 +1,45 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+header {
+    background-color: #6200ea;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+img {
+    width: 100px;
+    height: auto;
+}
+
+/* Adventure Container */
+#adventure-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#adventure-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#adventure-form button {
+    padding: 10px;
+    font-size: 16px;
+}
