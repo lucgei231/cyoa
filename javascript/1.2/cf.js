@@ -5,11 +5,12 @@ console.log("cf.js loaded for version 1.2");
 // Function to dynamically load all adventure steps scripts
 function loadAdventureSteps() {
     const scripts = [];
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 10; i++) { // Ensure it loops through all your scripts
         try {
             const script = require(`./script${i}.js`);
             scripts.push(script[`adventureSteps${i}_2`]);
         } catch (e) {
+            console.error(`Error loading script${i}.js:`, e);
             break;
         }
     }
@@ -23,6 +24,9 @@ const adventureSteps1_2_combined = loadAdventureSteps();
 // Initialize Adventure for version 1.2
 function initializeAdventure() {
     console.log("initializeAdventure called");
+    if (!adventureState.step) {
+        adventureState.step = 1; // Ensure a default step is set
+    }
     const currentStep = adventureSteps1_2_combined[adventureState.step];
     if (currentStep) {
         console.log("Current step text: " + currentStep.text);
