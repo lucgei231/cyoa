@@ -4,8 +4,8 @@ let adventureState = { step: 0 };
 
 const adventureSteps1_1 = {
     0: {
-        text: 'You awaken in a strange spaceship. Do you "explore" the ship or "stay" in your room?',
-        choices: { explore: 1, stay: 2 }
+        text: 'You awaken in a strange spaceship. Do you "explore" the ship or "explore" in your room?',
+        choices: { explore: 1, stay: 1 }
     },
     1: {
         text: 'You step out of your room and see blinking lights. Do you "investigate" the lights or "continue" down the hall?',
