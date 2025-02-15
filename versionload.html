@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Version - CYOA</title>
+    <title>CYOA - Choose Your Own Adventure Versions</title>
     <link rel="stylesheet" href="../style.css">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../icons/webapp.png">
+    <meta name="apple-mobile-web-app-capable" content="true">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CYOA">
+    <meta name="theme-color" content="#6200ea">
 </head>
 <body>
     <header>
         <h1>CYOA - Choose Your Own Adventure</h1>
+        <img src="../icons/icon.png" alt="CYOA Icon">
     </header>
     <main>
-        <h2>Select Version</h2>
-        <button onclick="loadVersion('1.0')">Version 1.0</button>
-        <button onclick="loadVersion('1.1')">Version 1.1</button>
-        <button onclick="loadVersion('1.2')">Version 1.2</button>
-        <!-- Add buttons for future versions here -->
+        <h2>Select a Version</h2>
+        <ul class="version-list">
+            <li><a href="index1.0">Version 1.0</a></li>
+            <li><a href="index1.1">Version 1.1</a></li>
+            <li><a href="index1.2">Version 1.2</a></li>
+            <li><a href="index2.0">Version 2.0</a></li>
+        </ul>
     </main>
-    <script>
-        function loadVersion(version) {
-            window.location.href = `./htmlversion/index${version}.html`;
-        }
-    </script>
+    <footer>
+        <p>&copy; 2025 CYOA. All rights reserved.</p>
+    </footer>
 </body>
 </html>
