@@ -1,7 +1,7 @@
 This is a Choose Your Own Adventure (CYOA) story.
 This project supports Ipad Webapps
 URLs:
-Main: https://lucgei231.github.io/cyoa/index
+Main: https://lucgei231.github.io/cyoa/index                     
 Load Version: https://lucgei231.github.io/cyoa/loadversion
 Version 1.0: https://lucgei231.github.io/cyoa/htmlversion/index1.0
 Version 1.1: https://lucgei231.github.io/cyoa/htmlversion/index1.1
