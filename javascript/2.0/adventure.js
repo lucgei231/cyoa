@@ -184,25 +184,4 @@ const adventureSteps = {
     }
 };
 
-// Initialize Adventure
-function initializeAdventure() {
-    console.log("initializeAdventure called");
-    adventureState = { step: 1 };
-    updateStory();
-}
-
-// Handle User Input
-document.getElementById('adventure-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const userInput = document.getElementById('user-input').value.trim().toLowerCase();
-    console.log("User input: " + userInput);
-    if (userInput === '') return;
-
-    handleChoice(userInput);
-    document.getElementById('user-input').value = '';
-});
-
-function handleChoice(choice) {
-    const currentStep = adventureSteps[adventureState.step];
-    if (!currentStep) {
-        console.error("Current step is undefined
+export default adventureSteps;
