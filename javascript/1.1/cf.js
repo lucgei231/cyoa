@@ -10,7 +10,10 @@ const adventureSteps1_1_combined = {
     ...adventureSteps4_1,
     ...adventureSteps5_1,
     ...adventureSteps6_1,
-    ...adventureSteps7_1
+    ...adventureSteps7_1,
+    ...adventureSteps8_1,
+    ...adventureSteps9_1,
+    ...adventureSteps10_1
 };
 
 // Initialize Adventure for version 1.1
