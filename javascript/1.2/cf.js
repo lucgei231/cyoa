@@ -7,7 +7,8 @@ function loadAdventureSteps() {
     const scripts = [];
     for (let i = 1; i <= 15; i++) {
         try {
-            scripts.push(require(`./script${i}.js`));
+            const script = require(`./script${i}.js`);
+            scripts.push(script[`adventureSteps${i}_2`]);
         } catch (e) {
             break;
         }
@@ -39,23 +40,40 @@ document.getElementById('adventure-form').addEventListener('submit', (e) => {
     console.log("User input: " + userInput);
     if (userInput === '') return;
 
+    handleChoice(userInput);
+    document.getElementById('user-input').value = '';
+});
+
+function handleChoice(choice) {
     const currentStep = adventureSteps1_2_combined[adventureState.step];
-    if (currentStep.choices[userInput] !== undefined) {
-        adventureState.step = currentStep.choices[userInput];
+    if (currentStep.choices[choice] !== undefined) {
+        adventureState.step = currentStep.choices[choice];
         const nextStep = adventureSteps1_2_combined[adventureState.step];
         if (nextStep) {
-            console.log("Next step text: " + nextStep.text);
             document.getElementById('story').innerText = nextStep.text;
+            if (document.querySelector('#inputType').value === 'buttons') {
+                renderChoices(nextStep.choices);
+            }
         } else {
-            console.log("Invalid step");
             document.getElementById('story').innerText = 'Invalid step, refresh the page to start again.';
         }
     } else {
-        console.log("Invalid choice");
         document.getElementById('story').innerText = 'Invalid choice. Please try again.';
     }
+}
 
-    document.getElementById('user-input').value = '';
-});
+function renderChoices(choices) {
+    const storyElement = document.getElementById('story');
+    storyElement.innerHTML += '<br/><br/>';
+    Object.keys(choices).forEach(choice => {
+        const button = document.createElement('button');
+        button.innerText = choice;
+        button.style.margin = '10px';
+        button.addEventListener('click', () => {
+            handleChoice(choice);
+        });
+        storyElement.appendChild(button);
+    });
+}
 
 initializeAdventure();
