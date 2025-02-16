@@ -1,45 +1,44 @@
-// javascript/LoadJS/Settings/cyoaButtons.js
+console.log("cyoaButtons.js loaded");
 
-document.addEventListener('inputTypeChange', (e) => {
-    if (e.detail.inputType === 'buttons') {
+// Update the Story Text with Choices as Buttons
+function updateStoryWithChoices() {
+    const currentStep = adventureSteps[adventureState.step];
+    if (currentStep) {
         const storyElement = document.getElementById('story');
-        const formElement = document.getElementById('adventure-form');
-        const inputElement = document.getElementById('user-input');
-        const storyText = storyElement.innerText;
+        storyElement.innerHTML = currentStep.text;
 
-        formElement.style.display = 'none';
-
-        const currentChoices = Object.keys(adventureSteps1_2_combined[adventureState.step].choices);
-        storyElement.innerHTML = `${storyText}<br/>`;
-
-        currentChoices.forEach(choice => {
+        // Create buttons for each choice
+        const choicesContainer = document.createElement('div');
+        choicesContainer.id = 'choices-container';
+        for (const choice in currentStep.choices) {
             const button = document.createElement('button');
+            button.classList.add('cyoa-button');
+            button.dataset.choice = choice;
             button.innerText = choice;
-            button.style.margin = '10px';
-            button.addEventListener('click', () => {
-                handleChoice(choice);
-            });
-            storyElement.appendChild(button);
-        });
+            button.addEventListener('click', () => handleChoice(choice));
+            choicesContainer.appendChild(button);
+        }
+        storyElement.appendChild(choicesContainer);
     } else {
-        const formElement = document.getElementById('adventure-form');
-        formElement.style.display = 'block';
-        const storyElement = document.getElementById('story');
-        storyElement.innerHTML = storyElement.innerText;
+        document.getElementById('story').innerText = 'Invalid step, refresh the page to start again.';
     }
+}
+
+// Handle Button Click
+function handleButtonClick(event) {
+    const choice = event.target.dataset.choice;
+    console.log("Button clicked:", choice);
+    handleChoice(choice);
+}
+
+// Attach Event Listeners to Buttons
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.cyoa-button').forEach(button => {
+        button.addEventListener('click', handleButtonClick);
+    });
 });
 
-function handleChoice(choice) {
-    const currentStep = adventureSteps1_2_combined[adventureState.step];
-    if (currentStep.choices[choice] !== undefined) {
-        adventureState.step = currentStep.choices[choice];
-        const nextStep = adventureSteps1_2_combined[adventureState.step];
-        if (nextStep) {
-            document.getElementById('story').innerText = nextStep.text;
-        } else {
-            document.getElementById('story').innerText = 'Invalid step, refresh the page to start again.';
-        }
-    } else {
-        document.getElementById('story').innerText = 'Invalid choice. Please try again.';
-    }
+// Override updateStory Function to Use Buttons Instead of Typing
+function updateStory() {
+    updateStoryWithChoices();
 }
