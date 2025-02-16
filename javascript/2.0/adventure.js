@@ -183,5 +183,3 @@ const adventureSteps = {
         choices: {}
     }
 };
-
-export default adventureSteps;
