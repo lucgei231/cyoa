@@ -23,7 +23,7 @@ const adventureSteps = {
         choices: { sail: 10, stay: 11 }
     },
     6: {
-        text: 'You fall asleep on the beach and have a wonderful dream. The end. Type "restart',
+        text: 'You fall asleep on the beach and have a wonderful dream. The end. Type "restart"',
         choices: { restart: 1 }
     },
     7: {
