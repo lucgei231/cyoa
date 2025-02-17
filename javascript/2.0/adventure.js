@@ -35,8 +35,8 @@ const adventureSteps = {
         choices: {}
     },
     9: {
-        text: 'You leave the cave and continue exploring. The adventure never ends.',
-        choices: {}
+        text: 'You leave the cave and continue exploring. The adventure never ends. Type continue to restart.',
+        choices: { continue: 1 }
     },
     10: {
         text: 'You sail the boat to a distant island. New adventures await! The end.',
