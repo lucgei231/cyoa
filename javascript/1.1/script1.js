@@ -3,6 +3,10 @@
 let adventureState = { step: 0 };
 
 const adventureSteps1_1 = {
+    9999: { 
+        text: 'Note, when it says "Refresh the page to start again", hold CMD on your keyboard and hit R. type "start" to begin the adventure.',
+        choices: { start: 0 }
+    }
     0: {
         text: 'You awaken in a strange spaceship. Do you "explore" the ship or "stay" in your room?',
         choices: { explore: 1, stay: 20 }
