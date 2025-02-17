@@ -23,19 +23,19 @@ const adventureSteps = {
         choices: { sail: 10, stay: 11 }
     },
     6: {
-        text: 'You fall asleep on the beach and have a wonderful dream. The end.',
-        choices: {}
+        text: 'You fall asleep on the beach and have a wonderful dream. The end. Type "restart',
+        choices: { restart: 1 }
     },
     7: {
-        text: 'You swim in the ocean and see beautiful fish. The end.',
-        choices: {}
+        text: 'You swim in the ocean and see beautiful fish. The end. Type "restart".',
+        choices: { restart: 1 }
     },
     8: {
         text: 'You open the treasure chest and find gold coins. You are rich! The end.',
         choices: {}
     },
     9: {
-        text: 'You leave the cave and continue exploring. The adventure never ends. Type continue to restart.',
+        text: 'You leave the cave and continue exploring. The adventure never ends. Type "continue" to restart.',
         choices: { continue: 1 }
     },
     10: {
