@@ -30,7 +30,7 @@ const adventureSteps2_1 = {
         choices: { head: 33, stay: 34 }
     },
     20: {
-        text: 'You stay in the room, and the adventure ends. Refresh the page to start again.',
+        text: 'You stay in the room, and the adventure ends. On your keyboard, press cmd +r or ctrl + r or reload page. .',
         choices: {}
     },
     21: {
